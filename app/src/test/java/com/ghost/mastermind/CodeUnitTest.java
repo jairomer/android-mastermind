@@ -1,6 +1,5 @@
 package com.ghost.mastermind;
 
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 

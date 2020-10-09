@@ -1,4 +1,5 @@
 package com.ghost.mastermind;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -8,17 +9,16 @@ public class MasterMindGameTest {
         MasterMindGame mmg = null;
         try {
             mmg = new MasterMindGame(3, 3, 3, false);
+            assertEquals(mmg.getRemainingSlots(), 3);
+            assertEquals(mmg.checkCurrentSlot(), MasterMindGame.NEXT_TURN);
+            assertEquals(mmg.getRemainingSlots(), 2);
+            assertEquals(mmg.checkCurrentSlot(), MasterMindGame.NEXT_TURN);
+            assertEquals(mmg.getRemainingSlots(), 1);
+            assertEquals(mmg.checkCurrentSlot(), MasterMindGame.DEFEAT);
         } catch (MasterMindGame.GameException e) {
             e.printStackTrace();
+            assertFalse(true);
         }
-
-        assertEquals(mmg.getRemainingSlots(), 3);
-        assertEquals(mmg.checkCurrentSlot(), MasterMindGame.NEXT_TURN);
-        assertEquals(mmg.getRemainingSlots(), 2);
-        assertEquals(mmg.checkCurrentSlot(), MasterMindGame.NEXT_TURN);
-        assertEquals(mmg.getRemainingSlots(), 1);
-        assertEquals(mmg.checkCurrentSlot(), MasterMindGame.DEFEAT);
-
     }
 
     @Test
